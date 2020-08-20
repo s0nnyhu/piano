@@ -1,18 +1,26 @@
 <template>
   <div class="panel">
-    <details class="details-animated">
+    <details :key="index" v-for="(music, index) in listMusic" class="details-animated">
       <summary>
-        <ul>
-          <li class="titleName">Trip name</li>
-          <li class="titleValue">Caribbean cruise</li>
-          <li></li>
-        </ul>
+        <div class="flexbox">
+          <div class="left" style="flex-grow:1">{{music.title}}</div>
+          <div class="center" style="width:75%;">{{music.duration}}</div>
+        </div>
       </summary>
       <div class="content">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+        <h4>Origin : {{music.origin}}</h4>
+        <h4>Duration : {{music.duration}}</h4>
+        <h4>Completed : {{music.completed}}</h4>
+        <h4>
+          Video link :
+          <a :href="music.link">{{music.link}}</a>
+        </h4>
+        <h4>Sheet : {{music.sheet}}</h4>
+        <h4>Mid : {{music.mid}}</h4>
+        <h4>Artist : {{music.credit}}</h4>
       </div>
     </details>
-    <details class="details-animated">
+    <!-- <details class="details-animated">
       <summary>
         <ul>
           <li>Start and end dates</li>
@@ -27,13 +35,33 @@
       <div class="content">
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
       </div>
-    </details>
+    </details>-->
   </div>
 </template>
 
 <script>
 export default {
-
+  data() {
+    return {
+      listMusic: []
+    }
+  },
+  mounted() {
+    this.fetchListMusic();
+  },
+  methods: {
+    fetchListMusic() {
+      fetch('https://raw.githubusercontent.com/s0nnyhu/piano/develop/data.json',
+        {
+          method: 'GET'
+        })
+        .then((oResponse) => { return oResponse.json(); })
+        .then((aData) => {
+          this.listMusic = aData
+          console.log(aData);
+        });
+    }
+  }
 }
 </script>
 
@@ -64,7 +92,7 @@ h1 {
   margin: 48px 0 12px 22px;
 }
 div.panel {
-  max-width: 65%;
+  max-width: 70%;
   margin: auto;
   margin-top: calc(2% - 0px);
 }
@@ -192,5 +220,68 @@ time {
     font-size: 1em;
     opacity: 0;
   }
+}
+
+.flexbox {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+@media (min-width: 576px) {
+  .flexbox {
+    flex-flow: row wrap;
+  }
+  .flexbox > .left {
+    order: 1;
+    flex: 0.5;
+  }
+  .flexbox > .center {
+    order: 2;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  div.panel {
+    max-width: 100%;
+    width: 95%;
+  }
+}
+
+@media (min-width: 768px) {
+  .flexbox {
+    flex-flow: row nowrap;
+  }
+  .flexbox > div {
+    width: 80% !important;
+  }
+  .flexbox > .left {
+    order: 1;
+  }
+  .flexbox > .center {
+    order: 2;
+  }
+}
+
+details {
+  border: 1px solid #aaa;
+  padding: 0.5em 0.5em 0;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+}
+
+details[open] {
+  padding: 0.5em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 0.5em;
 }
 </style>
