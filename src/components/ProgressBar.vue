@@ -11,6 +11,12 @@ export default {
 </script>
 
 <style>
+.progress {
+  height: 3px !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .progress-bar {
   transition-property: width, background-color;
   animation: animateProgress 1s ease-out;

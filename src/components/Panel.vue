@@ -1,10 +1,32 @@
 <template>
   <div class="panel">
-    <details :key="index" v-for="(music, index) in listMusic" class="details-animated">
+    <details :key="index" v-for="(music, index) in listSong" class="details-animated">
       <summary>
-        <div class="flexbox">
+        <!-- <div class="flexbox">
           <div class="left" style="flex-grow:1">{{music.title}}</div>
-          <div class="center" style="width:75%;">{{music.duration}}</div>
+          <div class="center" style="width:75%;">
+            <progressBar :percent="getSuccessPercent(music.duration, music.completed)" />
+          </div>
+        </div>-->
+        <div class="list-group-item-custom">
+          <div class="row">
+            <div class="col-sm-1">
+              <img
+                src="https://github.com/taulantspahiu/Bootcards-Examples/blob/master/contact_list/images/apple-logo.png?raw=true"
+              />
+            </div>
+            <div class="col-sm-5">
+              <h4 class="list-group-item-heading">{{music.title}}</h4>
+              <p class="list-group-item-text">{{music.origin}}</p>
+            </div>
+            <div class="col-sm-6">
+              <p class="list-group-item-text">Duration: {{music.duration}}</p>
+              <p class="list-group-item-text">Acknowledged: {{music.completed}}</p>
+            </div>
+            <div class="col-sm-12">
+              <progressBar :percent="getSuccessPercent(music.duration, music.completed)" />
+            </div>
+          </div>
         </div>
       </summary>
       <div class="content">
@@ -40,16 +62,28 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import { mapActions } from 'vuex'
+/* eslint-disable vue/no-unused-components */
+import ProgressBar from './ProgressBar';
+
 export default {
   data() {
     return {
-      listMusic: []
     }
   },
   mounted() {
     this.fetchListMusic();
   },
+  computed: {
+    ...mapGetters({
+      listSong: "listSong"
+    })
+  },
   methods: {
+    ...mapActions({
+      updateListSong: 'updateListSong'
+    }),
     fetchListMusic() {
       fetch('https://raw.githubusercontent.com/s0nnyhu/piano/develop/data.json',
         {
@@ -57,10 +91,32 @@ export default {
         })
         .then((oResponse) => { return oResponse.json(); })
         .then((aData) => {
-          this.listMusic = aData
-          console.log(aData);
+          this.updateListSong(aData);
         });
+    },
+    /**
+     * Retourne le nombre de secondes d'un string sous format mm:ss
+     */
+    mmSsToSecond(value) {
+      const mmSs = value.split(':');
+      return parseInt(mmSs[0]) * 60 + parseInt(mmSs[1]);
+    },
+    /**
+     * Retourne le pourcentage de réalisation d'une musique
+     */
+    getSuccessPercent(duration, completed) {
+      if (duration !== null && completed !== null) {
+        var durationSecond = this.mmSsToSecond(duration);
+        var completedSecond = this.mmSsToSecond(completed);
+        return completedSecond * 100 / durationSecond;
+      } else {
+        return 0;
+      }
+
     }
+  },
+  components: {
+    ProgressBar
   }
 }
 </script>
@@ -230,6 +286,10 @@ time {
   justify-content: space-between;
 }
 
+.flexbox > .center {
+  margin-right: 3%;
+}
+
 @media (min-width: 576px) {
   .flexbox {
     flex-flow: row wrap;
@@ -283,5 +343,18 @@ details[open] {
 details[open] summary {
   border-bottom: 1px solid #aaa;
   margin-bottom: 0.5em;
+}
+
+.list-group-item-custom {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+}
+
+.list-group-item-custom .list-group-item-text {
+  line-height: 18px;
+  margin-bottom: 5px;
+  overflow: hidden;
 }
 </style>
