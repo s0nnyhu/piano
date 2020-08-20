@@ -2,19 +2,8 @@
   <div class="panel">
     <details :key="index" v-for="(music, index) in listSong" class="details-animated">
       <summary>
-        <!-- <div class="flexbox">
-          <div class="left" style="flex-grow:1">{{music.title}}</div>
-          <div class="center" style="width:75%;">
-            <progressBar :percent="getSuccessPercent(music.duration, music.completed)" />
-          </div>
-        </div>-->
         <div class="list-group-item-custom">
           <div class="row">
-            <div class="col-sm-1">
-              <img
-                src="https://github.com/taulantspahiu/Bootcards-Examples/blob/master/contact_list/images/apple-logo.png?raw=true"
-              />
-            </div>
             <div class="col-sm-5">
               <h4 class="list-group-item-heading">{{music.title}}</h4>
               <p class="list-group-item-text">{{music.origin}}</p>
@@ -30,16 +19,13 @@
         </div>
       </summary>
       <div class="content">
-        <h4>Origin : {{music.origin}}</h4>
-        <h4>Duration : {{music.duration}}</h4>
-        <h4>Completed : {{music.completed}}</h4>
+        <h4>Artist : {{music.credit}}</h4>
         <h4>
           Video link :
           <a :href="music.link">{{music.link}}</a>
         </h4>
         <h4>Sheet : {{music.sheet}}</h4>
         <h4>Mid : {{music.mid}}</h4>
-        <h4>Artist : {{music.credit}}</h4>
       </div>
     </details>
     <!-- <details class="details-animated">
