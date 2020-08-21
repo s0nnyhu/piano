@@ -19,6 +19,7 @@ export default {
 
 <style>
 nav a {
+  font-size: 19px;
   display: inline-block;
   padding: 0.3rem 1rem;
   color: #000;
@@ -32,5 +33,10 @@ nav a:focus {
 }
 nav a:not(:last-child) {
   border-right: 1px solid black;
+}
+
+.router-link-exact-active {
+  background-color: black;
+  color: white;
 }
 </style>

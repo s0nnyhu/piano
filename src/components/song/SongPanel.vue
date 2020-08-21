@@ -93,12 +93,7 @@ html > body {
   text-rendering: optimizeLegibility;
   -webkit-text-rendering: optimizeLegibility;
 }
-h1 {
-  font-weight: 400;
-  color: #999;
-  font-size: 13px;
-  margin: 48px 0 12px 22px;
-}
+
 div.panel-custom {
   max-width: 70%;
   margin: auto;
@@ -153,23 +148,6 @@ summary:hover {
 
 details[open] summary:hover {
   background: none;
-}
-summary ul {
-  padding-left: 0;
-  list-style: none;
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-}
-summary ul li {
-  flex: 1 100%;
-  flex-flow: row wrap;
-}
-summary ul li span {
-  display: block;
-  font-size: 12px;
-  margin-top: 6px;
-  opacity: 0.75;
 }
 summary::-webkit-details-marker {
   display: none;
