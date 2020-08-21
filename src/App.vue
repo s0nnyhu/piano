@@ -1,18 +1,19 @@
 <template>
   <div id="app">
     <img alt="Vue logo" width="120" height="80" src="./assets/img/logo.png" />
-    <Main />
+    <router-view class="view"></router-view>
   </div>
 </template>
 
 <script>
-import Main from './components/Main.vue'
 
 export default {
   name: 'App',
-  components: {
-    Main
-  }
+  watch: {
+    '$route'(to) {
+      document.title = to.meta.title || 's0nnyHu'
+    }
+  },
 }
 </script>
 

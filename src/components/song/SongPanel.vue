@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import progressBar from './utilities/ProgressBar';
+import progressBar from '~/components/utilities/ProgressBar';
 
 export default {
   props: ['song'],

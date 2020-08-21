@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <a :key="menu" v-for="menu in listMenu" href="#">{{menu}}</a>
+    <router-link :key="menu.name" v-for="menu in listMenu" :to="menu.link">{{menu.name}}</router-link>
   </nav>
 </template>
 
@@ -8,7 +8,10 @@
 export default {
   data() {
     return {
-      listMenu: ['Music', 'Scales']
+      listMenu: [
+        { name: 'Song', link: '/' },
+        { name: 'Scales', link: '/scales' }
+      ]
     }
   }
 }

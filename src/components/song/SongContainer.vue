@@ -9,7 +9,7 @@
 <script>
 import { mapGetters } from "vuex";
 import { mapActions } from 'vuex'
-import SongPanel from './SongPanel';
+import SongPanel from '~/components/song/SongPanel';
 
 export default {
   data() {
