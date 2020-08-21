@@ -6,7 +6,6 @@ import ScaleView from '../components/view/ScaleView'
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
-    mode: 'history',
     base: __dirname,
     routes: [
         {
