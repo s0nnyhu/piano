@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import MajorScales from '~/components/scales/MajorScales';
+import MajorScales from './MajorScales';
 export default {
   components: {
     MajorScales

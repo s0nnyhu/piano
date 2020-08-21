@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import Menu from '~/components/layout/Menu'
-import Delimiter from '~/components/utilities/Delimiter'
+import Menu from './Menu'
+import Delimiter from '../utilities/Delimiter'
 
 export default {
   name: 'Main',

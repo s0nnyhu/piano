@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="~@/assets/img/major_scales.png" alt="Major scales" title="Major scales" />
+    <img src="../../assets/img/major_scales.png" alt="Major scales" title="Major scales" />
   </div>
 </template>
 

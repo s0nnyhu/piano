@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import Main from '~/components/layout/Main'
-import Scales from '~/components/scales/Scales'
+import Main from '../layout/Main'
+import Scales from '../scales/Scales'
 
 export default {
   components: {

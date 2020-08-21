@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router';
-import SongView from '~/components/view/SongView'
-import ScaleView from '~/components/view/ScaleView'
+import SongView from '../components/view/SongView'
+import ScaleView from '../components/view/ScaleView'
 
 Vue.use(VueRouter);
 

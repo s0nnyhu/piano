@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import Main from '~/components/layout/Main'
-import SongContainer from '~/components/song/SongContainer'
+import Main from '../layout/Main'
+import SongContainer from '../song/SongContainer'
 
 export default {
   components: {
