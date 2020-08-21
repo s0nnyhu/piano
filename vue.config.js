@@ -1,5 +1,6 @@
 const path = require('path');
 module.exports = {
+    publicPath: '/piano/',
     configureWebpack: {
         resolve: {
             alias: {
@@ -7,13 +8,4 @@ module.exports = {
             }
         }
     },
-    chainWebpack: config => {
-        config
-            .plugin('html')
-            .tap(args => {
-                args[0].title = 'Home - Piano';
-                args[0].template = './public/index.html';
-                return args;
-            })
-    }
 }
