@@ -1,88 +1,54 @@
 <template>
-  <div class="panel">
-    <details :key="index" v-for="(music, index) in listSong" class="details-animated">
-      <summary>
-        <div class="list-group-item-custom">
-          <div class="row">
-            <div class="col-sm-5">
-              <h4 class="list-group-item-heading">{{music.title}}</h4>
-              <p class="list-group-item-text">{{music.origin}}</p>
-            </div>
-            <div class="col-sm-6">
-              <p class="list-group-item-text">Duration: {{music.duration}}</p>
-              <p class="list-group-item-text">Acknowledged: {{music.completed}}</p>
-            </div>
-            <div class="col-sm-12">
-              <progressBar :percent="getSuccessPercent(music.duration, music.completed)" />
-            </div>
+  <details>
+    <summary>
+      <div class="list-group-item-custom">
+        <div class="row">
+          <div class="col-sm-5">
+            <h4 class="list-group-item-heading">{{song.title}}</h4>
+            <p class="list-group-item-text">{{song.origin}}</p>
+          </div>
+          <div class="col-sm-6">
+            <p class="list-group-item-text">Duration: {{song.duration}}</p>
+            <p class="list-group-item-text">Acknowledged: {{song.completed}}</p>
+          </div>
+          <div class="col-sm-12">
+            <progressBar :percent="getSuccessPercent(song.duration, song.completed)" />
           </div>
         </div>
-      </summary>
-      <div class="content">
-        <h4>Artist : {{music.credit}}</h4>
-        <h4>
-          Video link :
-          <a :href="music.link">{{music.link}}</a>
-        </h4>
-        <h4>Sheet : {{music.sheet}}</h4>
-        <h4>Mid : {{music.mid}}</h4>
       </div>
-    </details>
-    <!-- <details class="details-animated">
-      <summary>
-        <ul>
-          <li>Start and end dates</li>
-          <li class="titleValue">
-            <time>Start Date:</time> Feb 29, 2016
-          </li>
-          <li class="titleValue">
-            <time>End Date:</time> Not set
-          </li>
-        </ul>
-      </summary>
-      <div class="content">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-      </div>
-    </details>-->
-  </div>
+    </summary>
+    <div class="content">
+      <p class="list-group-item-text">
+        <u>Artist :</u>
+        {{song.credit}}
+      </p>
+      <p class="list-group-item-text">
+        <u>Video link :</u>
+        <a :href="song.link">&nbsp;{{song.link}}</a>
+      </p>
+      <p class="list-group-item-text">
+        <u>Sheet :</u>
+        <a v-if="song.sheet" :href="song.sheet">&nbsp;Sheet - {{song.title}}</a>
+        <template v-else>&nbsp;NA</template>
+      </p>
+      <p class="list-group-item-text">
+        <u>&nbsp;Mid :</u>
+        <a v-if="song.mid" :href="song.mid">&nbsp;Mid - {{song.title}}</a>
+        <template v-else>&nbsp;NA</template>
+      </p>
+    </div>
+  </details>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import { mapActions } from 'vuex'
-/* eslint-disable vue/no-unused-components */
-import ProgressBar from './ProgressBar';
+import progressBar from './utilities/ProgressBar';
 
 export default {
-  data() {
-    return {
-    }
-  },
-  mounted() {
-    this.fetchListMusic();
-  },
-  computed: {
-    ...mapGetters({
-      listSong: "listSong"
-    })
-  },
+  props: ['song'],
   methods: {
-    ...mapActions({
-      updateListSong: 'updateListSong'
-    }),
-    fetchListMusic() {
-      fetch('https://raw.githubusercontent.com/s0nnyhu/piano/develop/data.json',
-        {
-          method: 'GET'
-        })
-        .then((oResponse) => { return oResponse.json(); })
-        .then((aData) => {
-          this.updateListSong(aData);
-        });
-    },
     /**
-     * Retourne le nombre de secondes d'un string sous format mm:ss
-     */
+* Retourne le nombre de secondes d'un string sous format mm:ss
+*/
     mmSsToSecond(value) {
       const mmSs = value.split(':');
       return parseInt(mmSs[0]) * 60 + parseInt(mmSs[1]);
@@ -102,7 +68,7 @@ export default {
     }
   },
   components: {
-    ProgressBar
+    progressBar
   }
 }
 </script>
@@ -116,7 +82,7 @@ ol {
   padding: 0;
 }
 
-.panel {
+.panel-custom {
   text-align: left;
 }
 html > body {
@@ -133,12 +99,13 @@ h1 {
   font-size: 13px;
   margin: 48px 0 12px 22px;
 }
-div.panel {
+div.panel-custom {
   max-width: 70%;
   margin: auto;
   margin-top: calc(2% - 0px);
 }
 details {
+  border: 0;
   background: #fff;
   font-size: 16px;
   border-bottom: 1px solid #e0e0e0;
@@ -290,7 +257,7 @@ time {
 }
 
 @media only screen and (max-width: 900px) {
-  div.panel {
+  div.panel-custom {
     max-width: 100%;
     width: 95%;
   }

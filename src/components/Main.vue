@@ -2,21 +2,21 @@
   <div>
     <Menu />
     <Delimiter class="hr-1" />
-    <Panel />
+    <SongContainer />
   </div>
 </template>
 
 <script>
 import Menu from './Menu'
-import Delimiter from './Delimiter'
-import Panel from './Panel'
+import Delimiter from './utilities/Delimiter'
+import SongContainer from './SongContainer'
 
 export default {
   name: 'Main',
   components: {
     Menu,
     Delimiter,
-    Panel
+    SongContainer
   }
 }
 </script>
