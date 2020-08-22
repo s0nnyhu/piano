@@ -17,7 +17,9 @@ export default {
     }
   },
   mounted() {
-    this.fetchListMusic();
+    if (this.listSong.length === 0) {
+      this.fetchListMusic();
+    }
   },
   computed: {
     ...mapGetters({

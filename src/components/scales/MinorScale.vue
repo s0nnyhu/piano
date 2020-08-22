@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <img
-      src="../../assets/img/minor_scale.png"
+      :src="require('../../assets/img/' + (!finger ? scale : scaleWithFinger))"
       alt="Minor scale"
       title="Minor scale"
       loading="lazy"
@@ -12,7 +12,12 @@
 
 <script>
 export default {
-  components: {
+  props: ['finger'],
+  data() {
+    return {
+      scale: "minor_scale.png",
+      scaleWithFinger: "minor_scale_with_fingers.png"
+    }
   }
 }
 </script>

@@ -6,10 +6,14 @@
       <input type="radio" id="minor" name="scale-type" value="minor" v-model="scaleType" />
       <label for="minor">Minor</label>
     </div>
+    <div class="form-group">
+      <input type="checkbox" id="finger" v-model="scaleFinger" />
+      <label for="finger">Finger</label>
+    </div>
     <Delimiter class="hr-5" />
     <transition name="fade">
-      <MajorScale v-if="scaleType=='major'" />
-      <MinorScale v-if="scaleType=='minor'" />
+      <MajorScale v-if="scaleType=='major'" :finger="scaleFinger" />
+      <MinorScale v-if="scaleType=='minor'" :finger="scaleFinger" />
     </transition>
   </div>
 </template>
@@ -23,7 +27,8 @@ import Delimiter from '~/components/utilities/Delimiter';
 export default {
   data() {
     return {
-      scaleType: 'major'
+      scaleType: 'major',
+      scaleFinger: false
     }
   },
   components: {
@@ -36,7 +41,7 @@ export default {
 
 <style>
 .switch-field {
-  margin-bottom: 36px;
+  margin-bottom: 10px;
   overflow: hidden;
 }
 
@@ -58,7 +63,6 @@ export default {
   padding: 8px 16px;
   margin-right: -1px;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
   transition: all 0.1s ease-in-out;
 }
 
@@ -85,5 +89,52 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+/**checkbox */
+.form-group {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.form-group input {
+  padding: 0;
+  height: initial;
+  width: initial;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.form-group label {
+  position: relative;
+  cursor: pointer;
+}
+
+.form-group label:before {
+  content: "";
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 2px solid #0079bf;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.form-group input:checked + label:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 9px;
+  width: 6px;
+  height: 14px;
+  border: solid #0079bf;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 </style>
