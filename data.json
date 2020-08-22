@@ -21,12 +21,102 @@
   },
   {
     "title": "Michishirube",
-    "origin": "Violet Evergarden - Ending",
+    "origin": "Violet Evergarden",
     "duration": "1:34",
     "completed": "1:12",
     "link": "https://www.youtube.com/watch?v=01Nj8rphiGE",
     "credit": "Fonzi M",
     "sheet": "https://drive.google.com/file/d/1LuqdX9l0YliF6DVOb-8AEt19CfTY2ziC/view?usp=sharing",
     "mid": "https://drive.google.com/file/d/1gRWxMFwczkJ3kqoQL1O48cfE-nkiYKXY/view?usp=sharing"
+  },
+  {
+    "title": "Dear you",
+    "origin": "ひぐらしのなく頃に",
+    "duration": "3:40",
+    "completed": null,
+    "link": "https://www.youtube.com/watch?v=Sw49gMCXb1M",
+    "credit": "Theishter",
+    "sheet": "https://drive.google.com/file/d/1GTbOmYDeyL41kOYj-JkjdJPmQeci8Yv6/view?usp=sharing",
+    "mid": "https://drive.google.com/file/d/1CDbjWH7fgcQT8yiE343D2wlk_w68BY0F/view?usp=sharing"
+  },
+  {
+    "title": "Hear with you",
+    "origin": "Mirai nikki",
+    "duration": "2:22",
+    "completed": null,
+    "link": "https://www.youtube.com/watch?v=mv4bP40ze2A",
+    "credit": "Torby Brand",
+    "sheet": "https://drive.google.com/file/d/1zRVZeHKLdfNryltZzkMzGI3QZPW5apnU/view?usp=sharing",
+    "mid": null
+  },
+  {
+    "title": "Brothers",
+    "origin": "FMA",
+    "duration": "5:28",
+    "completed": null,
+    "link": "https://www.youtube.com/watch?v=44Kegru78Dk",
+    "credit": "Theishter - AtinPiano",
+    "sheet": "https://drive.google.com/file/d/1-4CR7mv7SSUpsnlxFvXJy36GrzuB9gnq/view?usp=sharing",
+    "mid": "https://drive.google.com/file/d/16YDrYr9JEbuuhSYutKCCRxnrP5Ll8L1f/view?usp=sharing"
+  },
+  {
+    "title": "One Summer's Day",
+    "origin": "Spirited Away",
+    "duration": "5:42",
+    "completed": "1:25",
+    "link": "https://www.youtube.com/watch?v=DEXr8kAesCY",
+    "credit": "AtinPiano",
+    "sheet": "https://drive.google.com/file/d/1WzOg2sz-kc3z9qBR0xyJsTP5oaHjwXQE/view?usp=sharing",
+    "mid": "https://drive.google.com/file/d/1yGgm--Dkn7j6mwisXX6S9-VGI7GLSb1S/view?usp=sharing"
+  },
+  {
+    "title": "Summer",
+    "origin": "Kikujiro",
+    "duration": "2:40",
+    "completed": "0:31",
+    "link": "https://www.youtube.com/watch?v=L5OHS_nPZgk",
+    "credit": "AtinPiano",
+    "sheet": "https://drive.google.com/file/d/1WzOg2sz-kc3z9qBR0xyJsTP5oaHjwXQE/view?usp=sharing",
+    "mid": null
+  },
+  {
+    "title": "Bird of death",
+    "origin": "Nisemonogatari",
+    "duration": "1:49",
+    "completed": null,
+    "link": "https://www.youtube.com/watch?v=L5OHS_nPZgk",
+    "credit": "Kuruku Kyo",
+    "sheet": "https://drive.google.com/file/d/1XZWc0QCKr-mDTn12z2cgqw_1q9Honef6/view?usp=sharing",
+    "mid": null
+  },
+  {
+    "title": "Platinum disco",
+    "origin": "Nisemonogatari",
+    "duration": "4:25",
+    "completed": null,
+    "link": "https://www.youtube.com/watch?v=yECf-gDG9e4",
+    "credit": "Ray Krislianggi",
+    "sheet": null,
+    "mid": null
+  },
+  {
+    "title": "King of Strangeness",
+    "origin": "Nisemonogatari",
+    "duration": "1:36",
+    "completed": null,
+    "link": "https://www.youtube.com/watch?v=_dengg0lVbU",
+    "credit": "Vea Kouki",
+    "sheet": "https://drive.google.com/file/d/1d3dpOCVNH7HGsx4DxVg_fP5s66lcyQxh/view?usp=sharing",
+    "mid": null
+  },
+  {
+    "title": "Lacie",
+    "origin": "Pandora hearts",
+    "duration": "1:57",
+    "completed": null,
+    "link": "https://www.youtube.com/watch?v=w74_biarPZk",
+    "credit": "TweedleDee1",
+    "sheet": "https://drive.google.com/file/d/1JVqNUckG_xdXTA_0EQVqJAWlMKCVg3EI/view?usp=sharing",
+    "mid": null
   }
 ]
