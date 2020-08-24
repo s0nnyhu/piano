@@ -36,6 +36,9 @@
         <a v-if="song.mid" :href="song.mid">&nbsp;Mid - {{song.title}}</a>
         <template v-else>&nbsp;NA</template>
       </p>
+      <audio v-if="song.mp3" controls>
+        <source :src="song.mp3" type="audio/mpeg" />Your browser does not support the audio element.
+      </audio>
     </div>
   </details>
 </template>
@@ -74,6 +77,10 @@ export default {
 </script>
 
 <style>
+audio {
+  width: 100%;
+}
+
 html,
 body,
 ul,
