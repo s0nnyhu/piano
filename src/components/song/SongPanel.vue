@@ -44,30 +44,17 @@
 </template>
 
 <script>
+import { getSuccessPercent } from '../../js/functions.js';
 import progressBar from '../utilities/ProgressBar';
 
 export default {
   props: ['song'],
   methods: {
     /**
-* Retourne le nombre de secondes d'un string sous format mm:ss
-*/
-    mmSsToSecond(value) {
-      const mmSs = value.split(':');
-      return parseInt(mmSs[0]) * 60 + parseInt(mmSs[1]);
-    },
-    /**
      * Retourne le pourcentage de réalisation d'une musique
      */
     getSuccessPercent(duration, completed) {
-      if (duration !== null && completed !== null) {
-        var durationSecond = this.mmSsToSecond(duration);
-        var completedSecond = this.mmSsToSecond(completed);
-        return completedSecond * 100 / durationSecond;
-      } else {
-        return 0;
-      }
-
+      return getSuccessPercent(duration, completed);
     }
   },
   components: {
