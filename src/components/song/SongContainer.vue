@@ -4,15 +4,21 @@
       <option value="az">A-Z</option>
       <option value="za">Z-A</option>
     </select>
-    <select name="selectFilter" id="selectFilter" v-model="selectFilter">
+    <select
+      name="selectFilter"
+      id="selectFilter"
+      v-model="selectFilter"
+      style="margin-bottom: 8px;"
+    >
       <option value="all">All</option>
       <option value="completed">Completed</option>
       <option value="inprogress">In progress</option>
       <option value="uncompleted">Uncompleted</option>
     </select>
-    <br style="margin-bottom:1rem" />
-    <template v-for="(song, index) in filteredSong">
-      <SongPanel :key="index" :song="song" />
+    <template v-if="filteredSong">
+      <template v-for="(song) in filteredSong">
+        <SongPanel :key="song.title" :song="song" />
+      </template>
     </template>
   </div>
 </template>

@@ -4,12 +4,22 @@
       <div class="list-group-item-custom">
         <div class="row">
           <div class="col-sm-5">
-            <h4 class="list-group-item-heading">{{song.title}}</h4>
+            <h4 class="list-group-item-heading">
+              <img
+                v-if="getSuccessPercent(song.duration, song.completed) == 100"
+                src="../../assets/img/star.svg"
+                widht="20"
+                height="20"
+                alt="Star"
+                title="Star"
+              />
+              {{song.title}}
+            </h4>
             <p class="list-group-item-text">{{song.origin}}</p>
           </div>
           <div class="col-sm-6">
             <p class="list-group-item-text">Duration: {{song.duration}}</p>
-            <p class="list-group-item-text">Acknowledged: {{song.completed}}</p>
+            <p class="list-group-item-text">Learned: {{song.completed}}</p>
           </div>
           <div class="col-sm-12">
             <progressBar :percent="getSuccessPercent(song.duration, song.completed)" />
