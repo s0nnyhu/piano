@@ -3,9 +3,13 @@
     <div
       v-if="percent != '100'"
       class="progress-bar progress-bar-uncompleted"
-      :style="{'width': percent + '%'}"
+      :style="{'width': percent === 'Full OST' ? 0 : percent + '%'}"
     ></div>
-    <div v-else class="progress-bar progress-bar-completed" :style="{'width': percent + '%'}"></div>
+    <div
+      v-else
+      class="progress-bar progress-bar-completed"
+      :style="{'width': percent === 'Full OST' ? 0 : percent + '%'}"
+    ></div>
   </div>
 </template>
 
@@ -26,7 +30,7 @@ export default {
   transition-property: width, background-color;
   height: 3px;
   width: 100%;
-  background: #323232;
+  background: #2751d7;
   transition-property: width, background-color;
 }
 

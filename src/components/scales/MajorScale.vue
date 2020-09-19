@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <div class="notes">
+      <h4>The pattern of the major scale is: WS - WS - HS - WS - WS - WS - HS</h4>
+    </div>
     <img
       :src="require('../../assets/img/' + (!finger ? scale : scaleWithFinger))"
       alt="Major scale"
@@ -23,6 +26,9 @@ export default {
 </script>
 
 <style>
+.notes {
+  border: 2px dashed black;
+}
 .responsive {
   width: 100%;
   height: auto;

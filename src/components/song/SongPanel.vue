@@ -13,16 +13,26 @@
                 alt="Star"
                 title="Star"
               />
+              <img
+                v-if="song.full"
+                src="../../assets/img/tilde.svg"
+                widht="20"
+                height="20"
+                alt="Star"
+                title="Star"
+              />
               {{song.title}}
             </h4>
             <p class="list-group-item-text">{{song.origin}}</p>
           </div>
           <div class="col-sm-6">
-            <p class="list-group-item-text">Duration: {{song.duration}}</p>
-            <p class="list-group-item-text">Learned: {{song.completed}}</p>
+            <p class="list-group-item-text">Duration: {{song.full ? 'Full OST' : song.duration}}</p>
+            <p class="list-group-item-text">Learned: {{song.full ? 'Full OST' : song.completed}}</p>
           </div>
           <div class="col-sm-12">
-            <progressBar :percent="getSuccessPercent(song.duration, song.completed)" />
+            <progressBar
+              :percent="song.full ? 'Full OST' : getSuccessPercent(song.duration, song.completed)"
+            />
           </div>
         </div>
       </div>

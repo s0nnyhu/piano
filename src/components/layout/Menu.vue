@@ -10,7 +10,8 @@ export default {
     return {
       listMenu: [
         { name: 'Song', link: '/' },
-        { name: 'Scales', link: '/scales' }
+        { name: 'Scales', link: '/scales' },
+        { name: 'Key signatures', link: '/key-signatures' }
       ]
     }
   }
