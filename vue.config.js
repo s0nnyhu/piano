@@ -1,6 +1,6 @@
 const path = require('path');
 module.exports = {
-    // publicPath: '/piano/',
+    publicPath: '/piano/',
     configureWebpack: {
         resolve: {
             alias: {
