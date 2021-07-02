@@ -39,20 +39,20 @@
     </summary>
     <div class="content">
       <p class="list-group-item-text">
-        <u>Artist :</u>
+        <strong>Artist :</strong>
         {{song.credit}}
       </p>
       <p class="list-group-item-text">
-        <u>Video link :</u>
+        <strong>Video link :</strong>
         <a :href="song.link">&nbsp;{{song.link}}</a>
       </p>
       <p class="list-group-item-text">
-        <u>Sheet :</u>
+        <strong>Sheet :</strong>
         <a v-if="song.sheet" :href="song.sheet">&nbsp;Sheet - {{song.title}}</a>
         <template v-else>&nbsp;NA</template>
       </p>
       <p class="list-group-item-text">
-        <u>&nbsp;Mid :</u>
+        <strong>&nbsp;Mid :</strong>
         <a v-if="song.mid" :href="song.mid">&nbsp;Mid - {{song.title}}</a>
         <template v-else>&nbsp;NA</template>
       </p>
