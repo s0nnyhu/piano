@@ -117,6 +117,7 @@
     "link": "https://www.youtube.com/watch?v=yECf-gDG9e4",
     "credit": "Ray Krislianggi",
     "mid": null,
+    "sheet": null,
     "mp3": "http://docs.google.com/uc?export=open&id=1Jy6YVXQGC-DFXESzyYAzPmElGton7T2K"
   },
   {
@@ -188,12 +189,12 @@
   {
     "title": "Continued Story",
     "origin": "Code Geass",
-    "duration": null,
-    "completed": null,
+    "duration": "4:09",
+    "completed": "0:15",
     "link": "https://www.youtube.com/watch?v=qYrRnJrotwg",
     "credit": "mnemechan",
     "mid": "https://drive.google.com/file/d/1HYuJjT7LYGUgr44u_8xwTYQ_M4ZnuUJM/view?usp=sharing",
-    "sheet":"https://drive.google.com/file/d/1JzkvLZIv4fLTvV-mhuznJhR_C0rvNcym/view?usp=sharing",
+    "sheet": "https://drive.google.com/file/d/1JzkvLZIv4fLTvV-mhuznJhR_C0rvNcym/view?usp=sharing",
     "mp3": "http://docs.google.com/uc?export=open&id=1R0bLZuRup7xgluzsZgNdI6IcW5RjQRbn"
   }
 ]
