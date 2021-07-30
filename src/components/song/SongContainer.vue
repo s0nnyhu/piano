@@ -1,22 +1,20 @@
 <template>
   <div class="panel-custom">
-    <select name="sortFilter" id="sortFilter" v-model="sortFilter">
-      <option value="az">A-Z</option>
-      <option value="za">Z-A</option>
-    </select>
+    <!--Filter-->
     <select
       name="selectFilter"
       id="selectFilter"
       v-model="selectFilter"
-      style="margin-bottom: 8px;"
+      style="margin-bottom: 8px"
     >
       <option value="all">All</option>
       <option value="completed">Completed</option>
       <option value="inprogress">In progress</option>
       <option value="uncompleted">Uncompleted</option>
     </select>
+    <input type="text" placeholder="Search music" v-model="searchedMusic" />
     <template v-if="filteredSong">
-      <template v-for="(song) in filteredSong">
+      <template v-for="song in filteredSong">
         <SongPanel :key="song.title" :song="song" />
       </template>
     </template>
@@ -24,17 +22,17 @@
 </template>
 
 <script>
-import { getSuccessPercent } from '../../js/functions.js';
+import { getSuccessPercent } from "../../js/functions.js";
 import { mapGetters } from "vuex";
-import { mapActions } from 'vuex'
-import SongPanel from './SongPanel';
+import { mapActions } from "vuex";
+import SongPanel from "./SongPanel";
 
 export default {
   data() {
     return {
-      selectFilter: 'all',
-      sortFilter: 'az',
-    }
+      searchedMusic: "",
+      selectFilter: "all",
+    };
   },
   mounted() {
     if (this.listSong.length === 0) {
@@ -43,72 +41,66 @@ export default {
   },
   computed: {
     ...mapGetters({
-      listSong: "listSong"
+      listSong: "listSong",
     }),
     filteredSong() {
       switch (this.selectFilter) {
-        case 'all':
-          return this.sortSong(this.listSong);
-        case 'completed':
-          return this.sortSong(this.listSong.filter(song => getSuccessPercent(song.duration, song.completed) == 100));
-        case 'inprogress':
-          return this.sortSong(this.listSong.filter(song => getSuccessPercent(song.duration, song.completed) < 100 && getSuccessPercent(song.duration, song.completed) > 0));
-        case 'uncompleted':
-          return this.sortSong(this.listSong.filter(song => getSuccessPercent(song.duration, song.completed) == 0));
+        case "all":
+          return this.searchSong(this.listSong);
+        case "completed":
+          return this.searchSong(
+            this.listSong.filter(
+              (song) => getSuccessPercent(song.duration, song.completed) == 100
+            )
+          );
+        case "inprogress":
+          return this.searchSong(
+            this.listSong.filter(
+              (song) =>
+                getSuccessPercent(song.duration, song.completed) < 100 &&
+                getSuccessPercent(song.duration, song.completed) > 0
+            )
+          );
+        case "uncompleted":
+          return this.searchSong(
+            this.listSong.filter(
+              (song) => getSuccessPercent(song.duration, song.completed) == 0
+            )
+          );
       }
       return this.listSong;
     },
   },
   methods: {
     ...mapActions({
-      updateListSong: 'updateListSong'
+      updateListSong: "updateListSong",
     }),
     fetchListMusic() {
-      fetch('https://raw.githubusercontent.com/s0nnyhu/piano/develop/data.json',
+      fetch(
+        "https://raw.githubusercontent.com/s0nnyhu/piano/develop/data.json",
         {
-          method: 'GET'
+          method: "GET",
+        }
+      )
+        .then((oResponse) => {
+          return oResponse.json();
         })
-        .then((oResponse) => { return oResponse.json(); })
         .then((aData) => {
           this.updateListSong(aData);
         });
     },
-    sortSong(aSong) {
-      switch (this.sortFilter) {
-        case 'az':
-          return aSong.sort(function (a, b) {
-            var titleA = a.title.toUpperCase(); // ignore upper and lowercase
-            var titleB = b.title.toUpperCase(); // ignore upper and lowercase
-            if (titleA < titleB) {
-              return -1;
-            }
-            if (titleA > titleB) {
-              return 1;
-            }
-            // names must be equal
-            return 0;
-          });
-        case 'za':
-          return aSong.sort(function (a, b) {
-            var titleA = a.title.toUpperCase(); // ignore upper and lowercase
-            var titleB = b.title.toUpperCase(); // ignore upper and lowercase
-            if (titleA < titleB) {
-              return 1;
-            }
-            if (titleA > titleB) {
-              return -1;
-            }
-            // names must be equal
-            return 0;
-          });
-      }
-      return aSong;
-    }
+    searchSong(aSong) {
+      var stringToSearch = this.searchedMusic;
+      var filteredSong = aSong.filter(function (str) {
+        return str.title.toLowerCase().includes(stringToSearch.toLowerCase());
+      });
+      return filteredSong;
+    },
   },
   components: {
-    SongPanel
-  }
-}
+    SongPanel,
+  },
+};
 </script>
 
 <style>
