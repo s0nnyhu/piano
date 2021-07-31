@@ -12,6 +12,7 @@
       <option value="inprogress">In progress</option>
       <option value="uncompleted">Uncompleted</option>
     </select>
+    <!--Music pannel-->
     <input type="text" placeholder="Search music" v-model="searchedMusic" />
     <template v-if="filteredSong">
       <template v-for="song in filteredSong">
@@ -92,7 +93,10 @@ export default {
     searchSong(aSong) {
       var stringToSearch = this.searchedMusic;
       var filteredSong = aSong.filter(function (str) {
-        return str.title.toLowerCase().includes(stringToSearch.toLowerCase());
+        return (
+          str.title.toLowerCase().includes(stringToSearch.toLowerCase()) ||
+          str.origin.toLowerCase().includes(stringToSearch.toLowerCase())
+        );
       });
       return filteredSong;
     },

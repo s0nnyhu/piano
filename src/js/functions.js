@@ -10,7 +10,7 @@ function mmSsToSecond(value) {
  * Retourne le pourcentage de réalisation d'une musique
  */
 export const getSuccessPercent = (duration, completed) => {
-    if (duration !== null && completed !== null) {
+    if (duration && completed) {
         var durationSecond = mmSsToSecond(duration);
         var completedSecond = mmSsToSecond(completed);
         return completedSecond * 100 / durationSecond;
