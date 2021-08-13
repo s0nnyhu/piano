@@ -99,7 +99,7 @@ export default {
     },
     getEmbedLink(url) {
       let id = url.split("?v=")[1];
-      let embedlink = "http://www.youtube.com/embed/" + id;
+      let embedlink = "https://www.youtube.com/embed/" + id;
       return embedlink;
     },
   },
