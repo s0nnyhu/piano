@@ -21,17 +21,25 @@
                 alt="Star"
                 title="Star"
               />
-              {{song.title}}
+              {{ song.title }}
             </h4>
-            <p class="list-group-item-text">{{song.origin}}</p>
+            <p class="list-group-item-text">{{ song.origin }}</p>
           </div>
           <div class="col-sm-6">
-            <p class="list-group-item-text">Duration: {{song.full ? 'Full OST' : song.duration}}</p>
-            <p class="list-group-item-text">Learned: {{song.full ? 'Full OST' : song.completed}}</p>
+            <p class="list-group-item-text">
+              Duration: {{ song.full ? "Full OST" : song.duration }}
+            </p>
+            <p class="list-group-item-text">
+              Learned: {{ song.full ? "Full OST" : song.completed }}
+            </p>
           </div>
           <div class="col-sm-12">
             <progressBar
-              :percent="song.full ? 'Full OST' : getSuccessPercent(song.duration, song.completed)"
+              :percent="
+                song.full
+                  ? 'Full OST'
+                  : getSuccessPercent(song.duration, song.completed)
+              "
             />
           </div>
         </div>
@@ -40,47 +48,45 @@
     <div class="content">
       <p class="list-group-item-text">
         <strong>Artist :</strong>
-        {{song.credit}}
+        {{ song.credit }}
       </p>
       <p class="list-group-item-text">
         <strong>Video link :</strong>
-        <a :href="song.link">&nbsp;{{song.link}}</a>
+        <a :href="song.link">&nbsp;{{ song.link }}</a>
       </p>
       <p class="list-group-item-text">
         <strong>Sheet :</strong>
-        <a v-if="song.sheet" :href="song.sheet">&nbsp;Sheet - {{song.title}}</a>
-        <template v-else>&nbsp;NA</template>
-      </p>
-      <p class="list-group-item-text">
-        <strong>&nbsp;Mid :</strong>
-        <a v-if="song.mid" :href="song.mid">&nbsp;Mid - {{song.title}}</a>
+        <a v-if="song.sheet" :href="song.sheet"
+          >&nbsp;Sheet - {{ song.title }}</a
+        >
         <template v-else>&nbsp;NA</template>
       </p>
       <audio v-if="song.mp3" controls>
-        <source :src="song.mp3" type="audio/mpeg" />Your browser does not support the audio element.
+        <source :src="song.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
       </audio>
     </div>
   </details>
 </template>
 
 <script>
-import { getSuccessPercent } from '../../js/functions.js';
-import progressBar from '../utilities/ProgressBar';
+import { getSuccessPercent } from "../../js/functions.js";
+import progressBar from "../utilities/ProgressBar";
 
 export default {
-  props: ['song'],
+  props: ["song"],
   methods: {
     /**
      * Retourne le pourcentage de réalisation d'une musique
      */
     getSuccessPercent(duration, completed) {
       return getSuccessPercent(duration, completed);
-    }
+    },
   },
   components: {
-    progressBar
-  }
-}
+    progressBar,
+  },
+};
 </script>
 
 <style>
