@@ -70,8 +70,7 @@
       <div class="video-wrapper">
         <div class="yt-video">
           <iframe
-            width="560"
-            height="315"
+            class="responsive-iframe"
             :src="getEmbedLink(song.link)"
             title="YouTube video player"
             frameborder="0"
@@ -110,6 +109,19 @@ export default {
 </script>
 
 <style>
+.container {
+  overflow: hidden;
+}
+
+.responsive-iframe {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 560px;
+  height: 315px;
+}
+
 audio {
   width: 100%;
 }
@@ -320,6 +332,17 @@ time {
   }
   .flexbox > .center {
     order: 2;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .responsive-iframe {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 
