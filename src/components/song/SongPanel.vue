@@ -61,10 +61,25 @@
         >
         <template v-else>&nbsp;NA</template>
       </p>
-      <audio v-if="song.mp3" controls>
+      <!--mp3 audio -->
+      <!-- <audio v-if="song.mp3" controls>
         <source :src="song.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
-      </audio>
+      </audio> -->
+      <!-- video -->
+      <div class="video-wrapper">
+        <div class="yt-video">
+          <iframe
+            width="560"
+            height="315"
+            :src="getEmbedLink(song.link)"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
     </div>
   </details>
 </template>
@@ -81,6 +96,11 @@ export default {
      */
     getSuccessPercent(duration, completed) {
       return getSuccessPercent(duration, completed);
+    },
+    getEmbedLink(url) {
+      let id = url.split("?v=")[1];
+      let embedlink = "http://www.youtube.com/embed/" + id;
+      return embedlink;
     },
   },
   components: {
@@ -239,6 +259,33 @@ time {
 
 .flexbox > .center {
   margin-right: 3%;
+}
+
+.yt-video {
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+  background: linear-gradient(to right, #fff 0%, #fff 100%),
+    linear-gradient(to right, #fff 0%, #fff 100%),
+    linear-gradient(to right, #fff 0%, #fff 100%),
+    linear-gradient(to right, #fff 0%, #fff 100%),
+    linear-gradient(to right, #fff 0%, #fff 100%),
+    linear-gradient(to right, #fff 0%, #fff 100%),
+    linear-gradient(to right, #fff 0%, #fff 100%),
+    linear-gradient(to right, #fff 0%, #fff 100%),
+    linear-gradient(to right, #444 0%, #444 100%),
+    linear-gradient(to right, #444 0%, #444 100%);
+  background-size: 15px 2px, 15px 2px, 15px 2px, 15px 2px, 2px 15px, 2px 15px,
+    2px 15px, 2px 15px, 2px 100%, 2px 100%;
+  background-position: 0 0, 0 100%, 100% 0, 100% 100%, 0 0, 0 100%, 100% 0,
+    100% 100%, 0 0, 100% 0;
+  background-repeat: no-repeat;
+}
+
+.video-wrapper {
+  padding: 1px;
+  background: #000;
+  opacity: 0.9;
 }
 
 @media (min-width: 576px) {
