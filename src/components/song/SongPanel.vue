@@ -26,12 +26,15 @@
             <p class="list-group-item-text">{{ song.origin }}</p>
           </div>
           <div class="col-sm-6">
-            <p class="list-group-item-text">
-              Duration: {{ song.full ? "Full OST" : song.duration }}
-            </p>
-            <p class="list-group-item-text">
-              Learned: {{ song.full ? "Full OST" : song.completed }}
-            </p>
+            <template v-if="!song.full">
+              <p class="list-group-item-text">Duration: {{ song.duration }}</p>
+              <p
+                class="list-group-item-text"
+              >Learned: {{ song.completed ? song.completed : "0:00" }}</p>
+            </template>
+            <template v-else>
+              <p class="list-group-item-text">Full OST</p>
+            </template>
           </div>
           <div class="col-sm-12">
             <progressBar
@@ -56,16 +59,14 @@
       </p>
       <p class="list-group-item-text">
         <strong>Sheet :</strong>
-        <a v-if="song.sheet" :href="song.sheet"
-          >&nbsp;Sheet - {{ song.title }}</a
-        >
+        <a v-if="song.sheet" :href="song.sheet">&nbsp;Sheet - {{ song.title }}</a>
         <template v-else>&nbsp;NA</template>
       </p>
       <!--mp3 audio -->
       <!-- <audio v-if="song.mp3" controls>
         <source :src="song.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
-      </audio> -->
+      </audio>-->
       <!-- video -->
       <div class="video-wrapper">
         <div class="yt-video">
@@ -109,6 +110,9 @@ export default {
 </script>
 
 <style>
+.list-group-item-text:last-of-type {
+  margin-bottom: 10px;
+}
 .container {
   overflow: hidden;
 }
@@ -276,7 +280,7 @@ time {
 .yt-video {
   display: flex;
   justify-content: center;
-  padding-top: 5px;
+  padding: 2px;
   background: linear-gradient(to right, #fff 0%, #fff 100%),
     linear-gradient(to right, #fff 0%, #fff 100%),
     linear-gradient(to right, #fff 0%, #fff 100%),
@@ -287,8 +291,8 @@ time {
     linear-gradient(to right, #fff 0%, #fff 100%),
     linear-gradient(to right, #444 0%, #444 100%),
     linear-gradient(to right, #444 0%, #444 100%);
-  background-size: 15px 2px, 15px 2px, 15px 2px, 15px 2px, 2px 15px, 2px 15px,
-    2px 15px, 2px 15px, 2px 100%, 2px 100%;
+  background-size: 16px 3px, 16px 3px, 16px 3px, 16px 3px, 3px 16px, 3px 16px,
+    3px 16px, 3px 16px, 3px 100%, 3px 100%;
   background-position: 0 0, 0 100%, 100% 0, 100% 100%, 0 0, 0 100%, 100% 0,
     100% 100%, 0 0, 100% 0;
   background-repeat: no-repeat;

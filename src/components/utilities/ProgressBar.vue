@@ -3,12 +3,12 @@
     <div
       v-if="percent != '100'"
       class="progress-bar progress-bar-uncompleted"
-      :style="{'width': percent === 'Full OST' ? 0 : percent + '%'}"
+      :style="{ 'width': percent === 'Full OST' ? 0 : percent + '%' }"
     ></div>
     <div
       v-else
       class="progress-bar progress-bar-completed"
-      :style="{'width': percent === 'Full OST' ? 0 : percent + '%'}"
+      :style="{ 'width': percent === 'Full OST' ? 0 : percent + '%' }"
     ></div>
   </div>
 </template>
