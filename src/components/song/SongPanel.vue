@@ -99,7 +99,7 @@ export default {
     },
     getEmbedLink(url) {
       let id = url.split("?v=")[1];
-      let embedlink = "https://www.youtube.com/embed/" + id;
+      let embedlink = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&loop=0&modestbranding=1&controls=1&showinfo=0&rel=0`;
       return embedlink;
     },
   },
