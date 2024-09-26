@@ -8,35 +8,11 @@
     "completed": false
   },
   {
-    "name": "Lost my pieces",
-    "composer": "Yukari Hashimoto",
-    "imageUrl": "https://m.media-amazon.com/images/S/pv-target-images/66ab7db02eaa5ff6603735c7478981c0011ebf638ba8e696dbba97b47bc88675.jpg",
-    "sheetLink": "https://raw.githubusercontent.com/s0nnyhu/piano/refs/heads/develop/Ashitaka%20and%20san%20original.pdf",
-    "songLink": "https://github.com/rafaelreis-hotmart/Audio-Sample-files/raw/refs/heads/master/sample.mp3",
-    "completed": false
-  },
-  {
-    "name": "Staple Stable",
-    "composer": "Chiwa Saito",
-    "imageUrl": "https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=contain,format=auto,quality=85,width=1200,height=675/catalog/crunchyroll/72c4a468dee1a04c5d353907748aa012.jpg",
-    "sheetLink": "https://raw.githubusercontent.com/s0nnyhu/piano/refs/heads/develop/Ashitaka%20and%20san%20original.pdf",
-    "songLink": "https://github.com/rafaelreis-hotmart/Audio-Sample-files/raw/refs/heads/master/sample.mp3",
-    "completed": false
-  },
-  {
     "name": "Michishirube",
     "composer": "Minori Chihara",
     "imageUrl": "https://deathmetalflorist.wordpress.com/wp-content/uploads/2018/12/violet-evergarden.jpg?w=616",
     "sheetLink": "https://raw.githubusercontent.com/s0nnyhu/piano/refs/heads/develop/Ashitaka%20and%20san%20original.pdf",
     "songLink": "https://github.com/rafaelreis-hotmart/Audio-Sample-files/raw/refs/heads/master/sample.mp3",
     "completed": false
-  },
-  {
-    "name": "Dear you",
-    "composer": "Dai",
-    "imageUrl": "https://deathmetalflorist.wordpress.com/wp-content/uploads/2018/12/violet-evergarden.jpg?w=616",
-    "sheetLink": "https://raw.githubusercontent.com/s0nnyhu/piano/refs/heads/develop/Ashitaka%20and%20san%20original.pdf",
-    "songLink": "https://github.com/rafaelreis-hotmart/Audio-Sample-files/raw/refs/heads/master/sample.mp3",
-    "completed": true
   }
 ]
